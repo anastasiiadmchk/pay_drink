@@ -32,12 +32,12 @@ class ApplicationInitializer {
         SilentReportMode(),
         <ReportHandler>[
           ConsoleHandler(enableDeviceParameters: false),
-          ToastHandler(
-            customMessage: 'Unexpected error',
-            length: ToastHandlerLength.long,
-            gravity: ToastHandlerGravity.top,
-            backgroundColor: Colors.red.shade300,
-          ),
+          // ToastHandler(
+          //   customMessage: 'Unexpected error',
+          //   length: ToastHandlerLength.long,
+          //   gravity: ToastHandlerGravity.top,
+          //   backgroundColor: Colors.red.shade300,
+          // ),
         ],
       ),
       profileConfig: catcherReleaseConfig,

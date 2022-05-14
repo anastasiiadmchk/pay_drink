@@ -33,11 +33,15 @@ class QrCubit extends Cubit<QrState> {
   //   }
   // }
 
-  void _readScan(Barcode readBarcode) async {
+  void readScan(Barcode readBarcode, DateTime currentScan) async {
     final stableState = state;
     try {
       // if (widget.isVmScanner) {
-
+      emit(state.copyWith(
+        lastScan: currentScan,
+        canScan: false,
+        isLoadingDeviceInfoString: true,
+      ));
       if (readBarcode.code?.contains('qr=') ?? false) {
         final qrCodeArray = readBarcode.code!.split('qr=');
         if (qrCodeArray.isNotEmpty) {
@@ -47,8 +51,8 @@ class QrCubit extends Cubit<QrState> {
               isLoadingDeviceInfoString: false,
               deviceInfo: qrCode,
             ));
-
             // emit(StartFetchingVmModel());
+            return;
 
             // getVmModel(deviceInfo: qrCode);
             // await verifyDeviceExistance(qrCode);
@@ -59,16 +63,22 @@ class QrCubit extends Cubit<QrState> {
               isLoadingVmModel: false,
               deviceExists: false,
             ));
-            // return;
+            return;
           }
         } else {
           Future.delayed(const Duration(seconds: 1), () {
-            emit(state.copyWith(canScan: true));
+            emit(state.copyWith(
+              canScan: true,
+              isLoadingDeviceInfoString: false,
+            ));
           });
         }
       } else {
         Future.delayed(const Duration(seconds: 1), () {
-          emit(state.copyWith(canScan: true));
+          emit(state.copyWith(
+            canScan: true,
+            isLoadingDeviceInfoString: false,
+          ));
         });
       }
       // } else {
@@ -101,11 +111,25 @@ class QrCubit extends Cubit<QrState> {
             canScan: false,
             isLoadingDeviceInfoString: true,
           ));
-          _readScan(scanData);
+          // readScan(scanData);
         }
       });
     } catch (e) {
       emit(VmModelGetFailure());
+      emit(stableState.copyWith(isLoadingDeviceInfoString: false));
+    }
+  }
+
+  void setCurrentScan(DateTime currentScan) {
+    final stableState = state;
+    try {
+      emit(state.copyWith(
+        lastScan: currentScan,
+        canScan: false,
+        isLoadingDeviceInfoString: true,
+      ));
+    } catch (e) {
+      emit(QrFailure());
       emit(stableState.copyWith(isLoadingDeviceInfoString: false));
     }
   }

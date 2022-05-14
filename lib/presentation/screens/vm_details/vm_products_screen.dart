@@ -45,7 +45,7 @@ class _VmDetailsScreenState extends State<VmDetailsScreen> {
                   final products = state.productsNumber ?? [];
                   return state.isLoading
                       ? const CustomLoadingIndicator()
-                      : products.length == 1
+                      : products.isEmpty
                           ? Padding(
                               padding:
                                   const EdgeInsets.only(left: 20, right: 16),

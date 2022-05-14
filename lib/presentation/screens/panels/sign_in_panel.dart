@@ -107,7 +107,7 @@ class _SignInPanelState extends State<SignInPanel> {
                 ),
                 alignment: AlignmentDirectional.topStart,
                 child: DefaultTextStyle(
-                  style: TextStyles.headingPrimaryTextStyle,
+                  style: TextStyles.cardHeadingTextStyle,
                   child: Row(
                     children: const [
                       Text('Sign In'),
@@ -116,35 +116,35 @@ class _SignInPanelState extends State<SignInPanel> {
                   ),
                 ),
               ),
-              CustomTextField(
-                title: 'Email',
-                keyboardType: TextInputType.emailAddress,
-                focusNode: _emailFocus,
-                controller: _emailController,
-                isInputValid: _isEmailValid,
-                onValidate: (value) => (value.trim().isNotEmpty),
-              ),
-              CustomTextField(
-                title: 'Password',
-                obscureText: true,
-                focusNode: _passwordFocus,
-                controller: _passwordController,
-                isInputValid: _isPasswordValid,
-                onValidate: (value) => (value.trim().isNotEmpty),
-              ),
-              const SizedBox(height: 6),
-              CustomButton(
-                isEnabledListenable: _isLoginButtonEnabled.result,
-                onPressed: () => _onSignInPressed(state),
-                child: const Text(
-                  'Sign in',
-                  key: Key('sign_in_button'),
-                ),
-              ),
-              SizedBox(
-                height: 90,
-                child: _buildForgotPassword(),
-              ),
+              // CustomTextField(
+              //   title: 'Email',
+              //   keyboardType: TextInputType.emailAddress,
+              //   focusNode: _emailFocus,
+              //   controller: _emailController,
+              //   isInputValid: _isEmailValid,
+              //   onValidate: (value) => (value.trim().isNotEmpty),
+              // ),
+              // CustomTextField(
+              //   title: 'Password',
+              //   obscureText: true,
+              //   focusNode: _passwordFocus,
+              //   controller: _passwordController,
+              //   isInputValid: _isPasswordValid,
+              //   onValidate: (value) => (value.trim().isNotEmpty),
+              // ),
+              // const SizedBox(height: 6),
+              // CustomButton(
+              //   isEnabledListenable: _isLoginButtonEnabled.result,
+              //   onPressed: () => _onSignInPressed(state),
+              //   child: const Text(
+              //     'Sign in',
+              //     key: Key('sign_in_button'),
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: 90,
+              //   child: _buildForgotPassword(),
+              // ),
               Container(
                 margin: const EdgeInsets.only(
                   bottom: 12,
@@ -229,7 +229,7 @@ class _SignInPanelState extends State<SignInPanel> {
         child: Text(
           'Forgot my password',
           style: TextStyles.labelTextTextStyle.copyWith(
-            color: AppColors.primaryBlueColor,
+            color: AppColors.uiLightGrey,
           ),
         ),
       ),

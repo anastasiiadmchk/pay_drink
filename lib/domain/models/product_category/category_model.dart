@@ -11,11 +11,14 @@ class Category {
 
   final List<Product>? categoryProducts;
 
-  Category(this.category, this.categoryProducts, this.categoryProductsIds);
+  Category({this.category, this.categoryProducts, this.categoryProductsIds});
 
   Category copyWith({String? category, List<Product>? categoryProducts}) {
-    return Category(category ?? this.category,
-        categoryProducts ?? this.categoryProducts, categoryProductsIds);
+    return Category(
+      category: category ?? this.category,
+      categoryProducts: categoryProducts ?? this.categoryProducts,
+      categoryProductsIds: categoryProductsIds,
+    );
   }
 
   factory Category.fromJson(Map<String, dynamic> json) =>

@@ -118,11 +118,12 @@ class VmRepoImpl implements VmRepo {
           final productDoc = await productsDocs.doc(id).get();
           products.add(Product.fromJson(productDoc.data() ?? {}));
         }
-        vmModel.copyWith(products: [
-          vmModel.products!.first.copyWith(categoryProducts: products)
-        ]);
 
-        return vmModel;
+        final newVmModelCategory =
+            vmModel.products!.first.copyWith(categoryProducts: products);
+        final newVmModel = vmModel.copyWith(products: [newVmModelCategory]);
+
+        return newVmModel;
       } else {
         return null;
       }

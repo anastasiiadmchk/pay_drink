@@ -28,14 +28,17 @@ class RealDbRepoImpl implements RealDbRepo {
                 .ref(location + vmModel.id + category + '/' + e.id!)
                 .once();
             print(record.snapshot.value);
-            final List<int> numbers = record.snapshot.children
-                .map((number) =>
-                    int.tryParse((number.value as Map?)?['number'] ?? '0') ?? 0)
-                .toList();
-            print(numbers);
+            if (record.snapshot.value != null) {
+              final List<int> numbers = record.snapshot.children
+                  .map((number) =>
+                      int.tryParse((number.value as Map?)?['number'] ?? '0') ??
+                      0)
+                  .toList();
+              print(numbers);
 
-            ///TO DO: change to sort on dateTime
-            productsList.add(ProductNumber(e, numbers.last));
+              ///TO DO: change to sort on dateTime
+              productsList.add(ProductNumber(e, numbers.last));
+            }
           }
         }
         return productsList;

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pay_drink/core/utils/navigation.dart';
 import 'package:pay_drink/domain/blocs/vm/vm_cubit.dart';
 import 'package:pay_drink/domain/blocs/vm/vm_state.dart';
 import 'package:pay_drink/domain/models/vm/vm_model.dart';
 
 import 'package:pay_drink/presentation/components/widgets/card_widget.dart';
 import 'package:pay_drink/presentation/components/widgets/loading_indicator.dart';
+import 'package:pay_drink/presentation/screens/qr/scanner_page.dart';
 import 'package:pay_drink/presentation/screens/vm/widgets/device_widget.dart';
 import 'package:pay_drink/presentation/screens/vm_details/vm_products_screen.dart';
+import 'package:pay_drink/theme/app_colors.dart';
 
 class VMScreen extends StatefulWidget {
   final String deviceInfo;
@@ -29,30 +32,40 @@ class _VMScreenState extends State<VMScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<VmCubit, VmState>(
-          bloc: bloc,
-          builder: (BuildContext context, VmState state) {
-            final device = state.vmModel;
-            if (state.isLoadingVmModel) {
-              return const CustomLoadingIndicator();
-            } else if (!state.deviceExists) {
-              return Text('Fetching device error');
-            } else {
-              return CardWidget(
-                isLoading: state.isLoadingVmModel,
-                child: DeviceWidget(
-                  // title: myProducts[index]["name"],
-                  // vmType: myProducts[index]["type"],
-                  // deviceId: myProducts[index]["id"],
-                  title: 'Device ' + (device?.id ?? ''),
-                  onVmTap: () => _getDeviceInfo(context, device!),
-                  vmType: device?.type ?? '',
-                  deviceId: device?.id ?? '',
-                  vmModel: device!,
-                ),
-              );
-            }
-          }),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _closeBtn(context),
+          const Spacer(),
+          BlocBuilder<VmCubit, VmState>(
+              bloc: bloc,
+              builder: (BuildContext context, VmState state) {
+                final device = state.vmModel;
+                if (state.isLoadingVmModel) {
+                  return const CustomLoadingIndicator();
+                } else if (!state.deviceExists) {
+                  return const Text('Fetching device error');
+                } else {
+                  return Center(
+                    child: CardWidget(
+                      isLoading: state.isLoadingVmModel,
+                      child: DeviceWidget(
+                        // title: myProducts[index]["name"],
+                        // vmType: myProducts[index]["type"],
+                        // deviceId: myProducts[index]["id"],
+                        title: 'Device ' + (device?.id ?? ''),
+                        onVmTap: () => _getDeviceInfo(context, device!),
+                        vmType: device?.type ?? '',
+                        deviceId: device?.id ?? '',
+                        vmModel: device!,
+                      ),
+                    ),
+                  );
+                }
+              }),
+          const Spacer(),
+        ],
+      ),
     );
   }
 
@@ -78,5 +91,26 @@ class _VMScreenState extends State<VMScreen> {
             ),
           );
         });
+  }
+
+  Widget _closeBtn(BuildContext context) {
+    return Align(
+      alignment: Alignment.topLeft,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(
+          start: 20.15,
+          top: 44.15,
+          bottom: 44.15,
+        ),
+        child: GestureDetector(
+          onTap: () => NavigationUtil.toScreenReplacement(
+              context: context, screen: const ScannerPage()),
+          child: const Icon(
+            Icons.close_rounded,
+            color: AppColors.uiDarkGrey,
+          ),
+        ),
+      ),
+    );
   }
 }

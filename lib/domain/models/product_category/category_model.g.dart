@@ -7,11 +7,11 @@ part of 'category_model.dart';
 // **************************************************************************
 
 Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
-      json['category'] as String?,
-      (json['categoryProducts'] as List<dynamic>?)
+      category: json['category'] as String?,
+      categoryProducts: (json['categoryProducts'] as List<dynamic>?)
           ?.map((e) => Product.fromJson(e as Map<String, dynamic>))
           .toList(),
-      (json['category_products'] as List<dynamic>?)
+      categoryProductsIds: (json['category_products'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
     );
