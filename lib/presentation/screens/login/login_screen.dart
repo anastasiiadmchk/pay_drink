@@ -68,7 +68,8 @@ class _LoginScreenState extends State<LoginScreen> {
           //     onPressed: bloc.signInWithGoogle,
           //   ),
           // ),
-          SignInPanel(authCubit: bloc)
+          SignInPanel(authCubit: bloc),
+          const Spacer(),
           // TextButton(
           //   onPressed: () => _onMoreOptionsPressed(state),
           //   child: Text(

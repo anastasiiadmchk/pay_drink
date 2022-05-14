@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1024602090224-tf24tstdi4cjofb6onn0182sv9uj82gb.apps.googleusercontent.com</string>
+	<string>1024602090224-o417i6q7j8ama3r1dhaha0lg458bnvvt.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1024602090224-tf24tstdi4cjofb6onn0182sv9uj82gb</string>
+	<string>com.googleusercontent.apps.1024602090224-o417i6q7j8ama3r1dhaha0lg458bnvvt</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBIxFlhSK5Ins-XRUzPZjCwk9P20jEgzdw</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.payDrink</string>
+	<string>com.qwertyeleonora.payDrink</string>
 	<key>PROJECT_ID</key>
 	<string>vendbmr</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1024602090224:ios:14308d01c405e4df137035</string>
+	<string>1:1024602090224:ios:f3b43c8bc226552d137035</string>
 	<key>DATABASE_URL</key>
 	<string>https://vendbmr-default-rtdb.firebaseio.com</string>
 </dict>

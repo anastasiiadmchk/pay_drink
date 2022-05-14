@@ -46,7 +46,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1024602090224:android:763105b2cfef8773137035",
         "android_client_info": {
-          "package_name": "com.example.pay_drink"
+          "package_name": "com.example.vend_bmr"
         }
       },
       "oauth_client": [
