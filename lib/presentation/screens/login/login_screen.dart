@@ -50,26 +50,24 @@ class _LoginScreenState extends State<LoginScreen> {
             borderRadius: BorderRadius.circular(100),
             child: Image.asset(
               "assets/start_loading.gif",
-              height: 125.0,
-              width: 125.0,
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(
-              left: MediaQuery.of(context).size.width * 0.1,
-              right: MediaQuery.of(context).size.width * 0.1,
-              bottom: MediaQuery.of(context).size.height * 0.01,
-            ),
-            child:
-                // Platform.isIOS
-                //     ? ContinueWithAppleButton(
-                //         onPressed: bloc.signInWithApple,
-                //       )
-                // :
-                ContinueWithGoogleButton(
-              onPressed: bloc.signInWithGoogle,
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.only(
+          //     left: MediaQuery.of(context).size.width * 0.1,
+          //     right: MediaQuery.of(context).size.width * 0.1,
+          //     bottom: MediaQuery.of(context).size.height * 0.01,
+          //   ),
+          //   child:
+          //       // Platform.isIOS
+          //       //     ? ContinueWithAppleButton(
+          //       //         onPressed: bloc.signInWithApple,
+          //       //       )
+          //       // :
+          //       ContinueWithGoogleButton(
+          //     onPressed: bloc.signInWithGoogle,
+          //   ),
+          // ),
           SignInPanel(authCubit: bloc)
           // TextButton(
           //   onPressed: () => _onMoreOptionsPressed(state),
