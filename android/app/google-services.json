@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "1024602090224",
+    "firebase_url": "https://vendbmr-default-rtdb.firebaseio.com",
+    "project_id": "vendbmr",
+    "storage_bucket": "vendbmr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024602090224:android:34979b3dc1b341bd137035",
+        "android_client_info": {
+          "package_name": "com.example.pay_drink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024602090224-bqbmsporrro007r9lnbm2mcbc87bbiga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7yfmD0Ho0c2qq3q1skTPytGWK6IUA-Jc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024602090224-bqbmsporrro007r9lnbm2mcbc87bbiga.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1024602090224-4sqb29f30j532tet4rnch2k0tcbs40ci.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vendBmr"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024602090224:android:763105b2cfef8773137035",
+        "android_client_info": {
+          "package_name": "com.example.pay_drink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024602090224-bqbmsporrro007r9lnbm2mcbc87bbiga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7yfmD0Ho0c2qq3q1skTPytGWK6IUA-Jc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024602090224-bqbmsporrro007r9lnbm2mcbc87bbiga.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1024602090224-4sqb29f30j532tet4rnch2k0tcbs40ci.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vendBmr"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

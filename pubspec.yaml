@@ -1,0 +1,281 @@
+name: pay_drink
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.14.0 <3.0.0"
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  auto_size_text: ^3.0.0
+  bloc: ^8.0.2
+  cached_network_image: ^3.2.0
+  catcher: ^0.6.8
+  cloud_firestore: ^3.1.11
+  cloud_functions: ^3.2.10
+  crypto: ^3.0.1
+  dotted_border: ^2.0.0+2
+  equatable: ^2.0.3
+  firebase_analytics: ^9.0.5
+  firebase_auth: ^3.3.5
+  firebase_core: ^1.11.0
+  firebase_crashlytics: ^2.4.5
+  firebase_database: ^9.0.13
+  firebase_performance: ^0.8.0+4
+  firebase_storage: ^10.2.9
+  flash: ^2.0.3+2
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.0.1
+  flutter_localizations:
+    sdk: flutter
+  flutter_svg: ^1.0.1
+
+  get_it: ^7.2.0
+  google_sign_in: ^5.2.3
+  
+  graphic: ^0.10.3
+  intl: ^0.17.0
+  json_annotation: ^4.4.0
+  logger: ^1.1.0
+  modal_bottom_sheet: ^2.0.0
+  mqtt_client: ^9.6.7
+  permission_handler: ^9.2.0
+  qr_code_scanner: ^0.7.0
+  rive: ^0.8.1
+  rxdart: ^0.27.3
+  sign_in_with_apple: ^3.3.0
+  uni_links: ^0.5.1
+  url_launcher: ^6.0.18
+  uuid: ^3.0.5
+  wakelock: ^0.6.1+2
+
+dev_dependencies:
+  build_runner: ^2.1.7
+  flutter_lints: ^1.0.4
+  flutter_test:
+    sdk: flutter
+  json_serializable: ^6.1.4
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/
+    - assets/vm_image/
+  #   - images/a_dot_ham.jpeg
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  
+  fonts:
+    - family: SF Pro Display
+      fonts:
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-Ultralight.ttf
+          weight: 100
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-Thin.ttf
+          weight: 200
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-Light.ttf
+          weight: 300
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-Semibold.ttf
+          weight: 600
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-Heavy.ttf
+          weight: 800
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-Black.ttf
+          weight: 900
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-UltralightItalic.ttf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-ThinItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-RegularItalic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-SemiboldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-HeavyItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/SFProDisplay/SFProDisplay-BlackItalic.ttf
+          weight: 900
+          style: italic
+
+    - family: SF Compact Text
+      fonts:
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-Ultralight.otf
+          weight: 100
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-Thin.otf
+          weight: 200
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-Light.otf
+          weight: 300
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-Regular.otf
+          weight: 400
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-Medium.otf
+          weight: 500
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-Semibold.otf
+          weight: 600
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-Bold.otf
+          weight: 700
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-Heavy.otf
+          weight: 800
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-Black.otf
+          weight: 900
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-UltralightItalic.otf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-ThinItalic.otf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-LightItalic.otf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-RegularItalic.otf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-MediumItalic.otf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-SemiboldItalic.otf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-BoldItalic.otf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-HeavyItalic.otf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/SFCompactText/SF-Compact-Text-BlackItalic.otf
+          weight: 900
+          style: italic
+    - family: SF Mono
+      fonts:
+        - asset: assets/fonts/SFMono/SF-Mono-Light.otf
+          weight: 300
+        - asset: assets/fonts/SFMono/SF-Mono-Regular.otf
+          weight: 400
+        - asset: assets/fonts/SFMono/SF-Mono-Medium.otf
+          weight: 500
+        - asset: assets/fonts/SFMono/SF-Mono-Semibold.otf
+          weight: 600
+        - asset: assets/fonts/SFMono/SF-Mono-Bold.otf
+          weight: 700
+        - asset: assets/fonts/SFMono/SF-Mono-Heavy.otf
+          weight: 800
+
+          style: italic
+        - asset: assets/fonts/SFMono/SF-Mono-LightItalic.otf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/SFMono/SF-Mono-RegularItalic.otf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/SFMono/SF-Mono-MediumItalic.otf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/SFMono/SF-Mono-SemiboldItalic.otf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/SFMono/SF-Mono-BoldItalic.otf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/SFMono/SF-Mono-HeavyItalic.otf
+          weight: 800
+          style: italic
+
+    - family: SF Pro Text
+      fonts:
+        - asset: assets/fonts/SFProText/SF-Pro-Text-Ultralight.otf
+          weight: 100
+        - asset: assets/fonts/SFProText/SF-Pro-Text-Thin.otf
+          weight: 200
+        - asset: assets/fonts/SFProText/SF-Pro-Text-Light.otf
+          weight: 300
+        - asset: assets/fonts/SFProText/SF-Pro-Text-Regular.otf
+          weight: 400
+        - asset: assets/fonts/SFProText/SF-Pro-Text-Medium.otf
+          weight: 500
+        - asset: assets/fonts/SFProText/SF-Pro-Text-Semibold.otf
+          weight: 600
+        - asset: assets/fonts/SFProText/SF-Pro-Text-Bold.otf
+          weight: 700
+        - asset: assets/fonts/SFProText/SF-Pro-Text-Heavy.otf
+          weight: 800
+        - asset: assets/fonts/SFProText/SF-Pro-Text-Black.otf
+          weight: 900
+        - asset: assets/fonts/SFProText/SF-Pro-Text-UltralightItalic.otf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/SFProText/SF-Pro-Text-ThinItalic.otf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/SFProText/SF-Pro-Text-LightItalic.otf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/SFProText/SF-Pro-Text-RegularItalic.otf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/SFProText/SF-Pro-Text-MediumItalic.otf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/SFProText/SF-Pro-Text-SemiboldItalic.otf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/SFProText/SF-Pro-Text-BoldItalic.otf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/SFProText/SF-Pro-Text-HeavyItalic.otf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/SFProText/SF-Pro-Text-BlackItalic.otf
+          weight: 900
+          style: italic
+
