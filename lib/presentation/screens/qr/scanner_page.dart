@@ -6,6 +6,7 @@ import 'package:intl/intl.dart' as intl;
 import 'package:pay_drink/core/utils/navigation.dart';
 import 'package:pay_drink/domain/blocs/qr/qr_cubit.dart';
 import 'package:pay_drink/domain/blocs/qr/qr_state.dart';
+import 'package:pay_drink/presentation/screens/profile/profile_screen.dart';
 import 'package:pay_drink/presentation/screens/qr/widgets/drawer_widget.dart';
 import 'package:pay_drink/presentation/screens/vm/vm_screen.dart';
 import 'package:pay_drink/theme/app_colors.dart';
@@ -71,7 +72,7 @@ class ScannerPageState extends State<ScannerPage> {
         key: _scaffoldKey,
         floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
         floatingActionButton: _menu(),
-        drawer: drawer(context: context, phone: phone, controller: controller),
+        // drawer: drawer(context: context, phone: phone, controller: controller),
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
         body: BlocConsumer<QrCubit, QrState>(
@@ -237,13 +238,13 @@ class ScannerPageState extends State<ScannerPage> {
                                                       ? Icons.done
                                                       : Icons.highlight,
                                                   color: _isManualEntering
-                                                      ? Colors.white
+                                                      ? AppColors.milkWhite
                                                       : (snapshot.data !=
                                                                   null &&
                                                               snapshot.data!
-                                                          ? AppColors
-                                                              .facebookColor
-                                                          : Colors.white),
+                                                          ? AppColors.uiDarkGrey
+                                                          : AppColors
+                                                              .milkWhite),
                                                   size: _isManualEntering
                                                       ? 30.0
                                                       : 25.0,
@@ -254,13 +255,13 @@ class ScannerPageState extends State<ScannerPage> {
                                                           Radius.circular(
                                                               30.0)),
                                                   color: _isManualEntering
-                                                      ? AppColors.facebookColor
+                                                      ? AppColors.uiDarkGrey
                                                       : (snapshot.data !=
                                                                   null &&
                                                               snapshot.data!
-                                                          ? Colors.white
+                                                          ? AppColors.milkWhite
                                                           : AppColors
-                                                              .facebookColor),
+                                                              .uiDarkGrey),
                                                 ),
                                                 height: _isManualEntering
                                                     ? 60.0
@@ -449,17 +450,21 @@ class ScannerPageState extends State<ScannerPage> {
 
   Widget _menu() {
     return FloatingActionButton(
-      backgroundColor: AppColors.milkWhite,
-      child: Icon(ModalRoute.of(context)!.isFirst ? Icons.menu : Icons.close),
+      backgroundColor: AppColors.uiDarkGrey,
+      child: Icon(
+        ModalRoute.of(context)!.isFirst ? Icons.person : Icons.close,
+        color: AppColors.uiPaleWarmGrey,
+      ),
       elevation: 8,
       onPressed: () {
         _isManualEntering = false;
         _searchTextController.text = '';
 
         FocusScope.of(context).requestFocus(FocusNode());
-        ModalRoute.of(context)!.isFirst
-            ? _scaffoldKey.currentState!.openDrawer()
-            : Navigator.of(context, rootNavigator: true).pop();
+        NavigationUtil.toScreen(context: context, screen: ProfileScreen());
+        // ModalRoute.of(context)!.isFirst
+        //     ? _scaffoldKey.currentState!.openDrawer()
+        //     : Navigator.of(context, rootNavigator: true).pop();
       },
     );
   }

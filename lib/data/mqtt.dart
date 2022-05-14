@@ -35,13 +35,15 @@ class Mqtt {
 
     // topic += '/$uuid';
 
-    _client = MqttServerClient.withPort('127.0.0.1', uuid, 1883,
-        maxConnectionAttempts: 10);
+    _client = MqttServerClient.withPort(
+        'payanddrink.cloud.shiftr.io', uuid, 1883,
+        maxConnectionAttempts: 20);
+
     // }
     print('connecting....');
     _client?.websocketProtocols = ['websockets', 'mqtt'];
     // _client?.useWebSocket = true;
-    // _client!.port = configirationData.mqttPort;
+    // _client?.port = 1883;
     // _client?.websocketProtocols = ['mqtt'];
 
     /// Set the correct MQTT protocol for mosquito
@@ -64,7 +66,7 @@ class Mqtt {
             'connection-check') // If you set this you must set a will message
         .withWillMessage('Init connection check')
         .startClean() // Non persistent session for testing
-        // .authenticateAs('username', 'password')
+        .authenticateAs("payanddrink", "S6Ys9VJWrzHsVpYt")
         .withWillQos(MqttQos.atMostOnce);
     print('EXAMPLE::Mosquitto client connecting....');
     // BlocProvider.instance.vmConnectionBloc.setLoading(true);
@@ -90,7 +92,7 @@ class Mqtt {
     }
 
     /// Check we are connected
-    if (_client?.connectionStatus!.state == MqttConnectionState.connected) {
+    if (_client?.connectionStatus?.state == MqttConnectionState.connected) {
       print('EXAMPLE::Mosquitto client connected');
 
       // final builder = MqttClientPayloadBuilder();

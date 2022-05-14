@@ -29,6 +29,11 @@ class _VmDetailsScreenState extends State<VmDetailsScreen> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.bottom -

@@ -59,7 +59,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
       _productCubit.makePayment(
           deviceId: widget.deviceId,
           productInfo: widget.product.product?.id ?? 'QpgLEYEbHdcGfAgcLTni',
-          productsNumber: _productNumberController.text);
+          productsNumber: (widget.product.number! -
+                  (int.tryParse(_productNumberController.text) ?? 0))
+              .toString());
     }
   }
 

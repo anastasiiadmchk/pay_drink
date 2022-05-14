@@ -27,8 +27,6 @@ class ProductCubit extends Cubit<ProductState> {
       final _mqttData = BehaviorSubject();
 
       Mqtt _mqtt = Mqtt(
-        // configirationData: this.configurationData!,
-
         uuid: const Uuid().v4().toString().substring(0, 10),
         deviceId: deviceId,
         productId: productInfo,
