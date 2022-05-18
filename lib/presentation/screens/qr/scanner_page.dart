@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart' as intl;
@@ -7,11 +6,9 @@ import 'package:pay_drink/core/utils/navigation.dart';
 import 'package:pay_drink/domain/blocs/qr/qr_cubit.dart';
 import 'package:pay_drink/domain/blocs/qr/qr_state.dart';
 import 'package:pay_drink/presentation/screens/profile/profile_screen.dart';
-import 'package:pay_drink/presentation/screens/qr/widgets/drawer_widget.dart';
 import 'package:pay_drink/presentation/screens/vm/vm_screen.dart';
 import 'package:pay_drink/theme/app_colors.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'dart:ui';
 
 import 'package:rxdart/subjects.dart';
 import 'package:wakelock/wakelock.dart';
@@ -71,7 +68,7 @@ class ScannerPageState extends State<ScannerPage> {
       child: Scaffold(
         key: _scaffoldKey,
         floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
-        floatingActionButton: _menu(),
+        // floatingActionButton: _menu(),
         // drawer: drawer(context: context, phone: phone, controller: controller),
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
@@ -314,7 +311,7 @@ class ScannerPageState extends State<ScannerPage> {
                                                 _isManualEntering
                                                     ? Icons.done
                                                     : Icons.highlight,
-                                                color: Colors.white,
+                                                color: AppColors.milkWhite,
                                                 size: _isManualEntering
                                                     ? 30.0
                                                     : 25.0,
@@ -326,8 +323,7 @@ class ScannerPageState extends State<ScannerPage> {
                                                               _isManualEntering
                                                                   ? 30.0
                                                                   : 25.0)),
-                                                  color:
-                                                      AppColors.facebookColor),
+                                                  color: AppColors.uiDarkGrey),
                                               height: _isManualEntering
                                                   ? 60.0
                                                   : 50.0,

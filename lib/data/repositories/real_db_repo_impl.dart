@@ -24,21 +24,26 @@ class RealDbRepoImpl implements RealDbRepo {
             print(e.id);
 
             ///TO DO: change to sort on dateTime
-            final DatabaseEvent record = await _database
+            // final DatabaseEvent record =
+            await _database
                 .ref(location + vmModel.id + category + '/' + e.id!)
-                .once();
-            print(record.snapshot.value);
-            if (record.snapshot.value != null) {
-              final List<int> numbers = record.snapshot.children
-                  .map((number) =>
-                      int.tryParse((number.value as Map?)?['number'] ?? '0') ??
-                      0)
-                  .toList();
-              print(numbers);
+                .get()
+                .then((record) {
+              // .once();
+              print(record.value);
+              if (record.value != null) {
+                final List<int> numbers = record.children
+                    .map((number) =>
+                        int.tryParse(
+                            (number.value as Map?)?['number'] ?? '0') ??
+                        0)
+                    .toList();
+                print(numbers);
 
-              ///TO DO: change to sort on dateTime
-              productsList.add(ProductNumber(e, numbers.last));
-            }
+                ///TO DO: change to sort on dateTime
+                productsList.add(ProductNumber(e, numbers.last));
+              }
+            });
           }
         }
         return productsList;

@@ -67,7 +67,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   void _listener(BuildContext context, ProductState state) {
     if (state is PaymentSuccess) {
-      NavigationUtil.toScreenReplacement(
+      NavigationUtil.toScreenAndCleanBackstack(
           context: context, screen: const ThankYouScreen());
     }
   }

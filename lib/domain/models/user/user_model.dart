@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:pay_drink/core/converters/timestamp_converter.dart';
 
 part 'user_model.g.dart';
 
@@ -8,6 +9,7 @@ class UserModel extends Equatable {
   final String? id;
   final DateTime? createdAt;
   final String? email;
+  @TimestampConverter()
   final DateTime? birthdate;
   final String? firstName;
   final String? lastName;

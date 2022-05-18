@@ -4,18 +4,14 @@ import 'dart:io';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart'
     if (dart.library.html) 'package:mqtt_client/mqtt_browser_client.dart';
-import 'package:uuid/uuid.dart';
 
 class Mqtt {
   MqttClient? _client;
-  // ConfigurationData? _configirationData;
   String topic = '';
   String? _deviceId;
   final String uuid;
   Completer<bool> _connectionCompleater = Completer();
   Completer<bool> _subscriptionToTopicCompleter = Completer();
-  // StreamController<VmResult> _dataStream =
-  //     StreamController<VmResult>.broadcast();
 
   Mqtt(
       {
@@ -28,15 +24,8 @@ class Mqtt {
     _deviceId = deviceId;
     topic += '$_deviceId';
     topic += '/$productId';
-    // _configirationData = configirationData;
-    // if (phoneNumber != null) {
-    //   topic += '/$phoneNumber';
-    // } else {
 
-    // topic += '/$uuid';
-
-    _client = MqttServerClient.withPort(
-        'payanddrink.cloud.shiftr.io', uuid, 1883,
+    _client = MqttServerClient.withPort('pay-drink.cloud.shiftr.io', uuid, 1883,
         maxConnectionAttempts: 20);
 
     // }
@@ -66,7 +55,7 @@ class Mqtt {
             'connection-check') // If you set this you must set a will message
         .withWillMessage('Init connection check')
         .startClean() // Non persistent session for testing
-        .authenticateAs("payanddrink", "S6Ys9VJWrzHsVpYt")
+        .authenticateAs("pay-drink", "S6Ys9VJWrzHsVpYt")
         .withWillQos(MqttQos.atMostOnce);
     print('EXAMPLE::Mosquitto client connecting....');
     // BlocProvider.instance.vmConnectionBloc.setLoading(true);
@@ -138,68 +127,9 @@ class Mqtt {
       /// Use status here rather than state if you also want the broker return code.
       print(
           'EXAMPLE::ERROR Mosquitto client connection failed - disconnecting, status is ${_client?.connectionStatus}');
-      // _client?.disconnect();
-      // exit(-1);
     }
-
-    /// Ok, we will now sleep a while, in this gap you will see ping request/response
-    /// messages being exchanged by the keep alive mechanism.
-    // print('EXAMPLE::Sleeping....');
-    // await MqttUtilities.asyncSleep(60);
-
-    // /// Finally, unsubscribe and exit gracefully
-    // print('EXAMPLE::Unsubscribing');
-    // _client?.unsubscribe(topic);
-
-    /// Wait for the unsubscribe message from the broker if you wish.
-    // await MqttUtilities.asyncSleep(2);
-    // print('EXAMPLE::Disconnecting');
-    // _client?.disconnect();
-    // print('EXAMPLE::Exiting normally');
   }
 
-  // void cleanUp() {
-  //   disconnect();
-  // }
-
-  // void disconnect() {
-  //   // if (!_dataStream.isClosed) {
-  //   //   _dataStream.close();
-  //   // }
-  //   _client!.disconnect();
-  // }
-
-  // void _onSubscribed(String topic) {
-  //   if (!_subscriptionToTopicCompleter.isCompleted) {
-  //     _subscriptionToTopicCompleter.complete(true);
-  //   } else {
-  //     _subscriptionToTopicCompleter.complete(false);
-  //   }
-  // }
-
-  // void _onDisconnected() {
-  //   if (_client!.connectionStatus!.disconnectionOrigin ==
-  //       MqttDisconnectionOrigin.solicited) {
-  //     // disconnect();
-  //   } else {
-  //     // VmResult result = VmResult();
-  //     // result.success = false;
-  //     // result.state = VmConnectionState.error;
-  //     // _dataStream.add(result);
-  //   }
-  // }
-
-  // void _onConnected() {
-  //   if (!_connectionCompleater.isCompleted) {
-  //     if (_client!.connectionStatus!.state == MqttConnectionState.connected) {
-  //       _connectionCompleater.complete(true);
-  //     } else {
-  //       _connectionCompleater.complete(false);
-  //     }
-  //   } else {
-  //     _connectionCompleater.complete(false);
-  //   }
-  // }
   /// The subscribed callback
   void _onSubscribed(String topic) {
     print('EXAMPLE::Subscription confirmed for topic $topic');
@@ -216,11 +146,6 @@ class Mqtt {
           'EXAMPLE::OnDisconnected callback is unsolicited or none, this is incorrect - exiting');
       // exit(255);
     }
-    // if (pongCount == 3) {
-    //   print('EXAMPLE:: Pong count is correct');
-    // } else {
-    //   print('EXAMPLE:: Pong count is incorrect, expected 3. actual $pongCount');
-    // }
   }
 
 // /// The successful connect callback

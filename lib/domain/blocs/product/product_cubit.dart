@@ -39,8 +39,10 @@ class ProductCubit extends Cubit<ProductState> {
       });
       _mqtt.publishMessage(productsNumber);
 
-      emit(state.copyWith(isLoadingPayment: false, topicIsPublished: true));
-      emit(PaymentSuccess());
+      Future.delayed(const Duration(seconds: 2), () {
+        emit(state.copyWith(isLoadingPayment: false, topicIsPublished: true));
+        emit(PaymentSuccess());
+      });
     } catch (e) {
       emit(ProductPayFailure());
       emit(stableState.copyWith(isLoadingPayment: false));

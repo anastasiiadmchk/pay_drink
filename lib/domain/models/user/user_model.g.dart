@@ -12,9 +12,7 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
           ? null
           : DateTime.parse(json['createdAt'] as String),
       email: json['email'] as String?,
-      birthdate: json['birthdate'] == null
-          ? null
-          : DateTime.parse(json['birthdate'] as String),
+      birthdate: const TimestampConverter().fromJson(json['birthdate']),
       firstName: json['firstName'] as String?,
       lastName: json['lastName'] as String?,
       middleName: json['middleName'] as String?,
@@ -24,7 +22,7 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt?.toIso8601String(),
       'email': instance.email,
-      'birthdate': instance.birthdate?.toIso8601String(),
+      'birthdate': const TimestampConverter().toJson(instance.birthdate),
       'firstName': instance.firstName,
       'lastName': instance.lastName,
       'middleName': instance.middleName,

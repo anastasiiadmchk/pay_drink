@@ -15,7 +15,9 @@ class ProductsCubit extends Cubit<ProductsState> {
     final stableState = state;
     try {
       emit(state.copyWith(isLoading: true));
+      await Future.delayed(const Duration(seconds: 1));
       final list = await _realDbRepo.getVmProductsInfo(vmModel: vmModel);
+
       emit(state.copyWith(productsNumber: list, isLoading: false));
     } catch (e) {
       emit(VmProductsGetFailure());
