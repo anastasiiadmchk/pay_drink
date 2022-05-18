@@ -8,7 +8,7 @@ import 'package:pay_drink/presentation/components/widgets/card_widget.dart';
 import 'package:pay_drink/presentation/components/widgets/custom_text_field.dart';
 import 'package:pay_drink/presentation/components/widgets/loading_indicator.dart';
 import 'package:pay_drink/presentation/components/widgets/question_sheet.dart';
-import 'package:pay_drink/presentation/thank_you/thank_you_screen.dart';
+import 'package:pay_drink/presentation/screens/thank_you/thank_you_screen.dart';
 import 'package:pay_drink/theme/text_styles.dart';
 
 class PaymentScreen extends StatefulWidget {
